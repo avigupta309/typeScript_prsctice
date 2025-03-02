@@ -14,3 +14,22 @@ input{
   outline: none;
 }
 }
+
+ul li{
+  list-style: none;
+  text-align: left;
+}
+
+.showing{
+  display: flex;
+  padding: 1rem;
+}
+
+.AppData,formData{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid;
+  width: 50%;
+}

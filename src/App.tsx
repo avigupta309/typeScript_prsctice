@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { FormData } from "./components/ContextForm";
 import "./App.css";
 
 export const App: React.FC = () => {
@@ -29,13 +30,15 @@ export const App: React.FC = () => {
     setInformation(storedData);
   }
 
-  useEffect(()=>{
-    console.log(information)
-  },[information])
+  useEffect(() => {
+    console.log(information);
+  }, [information]);
 
   return (
     <>
-      <h1>Avinash</h1>
+      <div className="showing">
+        <div className="AppData">
+      <h1>FormData</h1>
       <form onSubmit={handleSubmit}>
         <div className="formData">
           <label htmlFor="name">Name</label>
@@ -63,8 +66,27 @@ export const App: React.FC = () => {
         </div>
       </form>
 
-      <div className="showing">
-   
+        <h1>Name Of User :</h1>
+        <ul>
+          {information.length > 0 ? (
+            information.map((data, index) => {
+              return (
+                <div key={index}>
+                  <li> Name - {data.userName}</li>
+                  <li> EmailAddress - {data.userEmail}</li>
+                  <li> Phone No. - {data.userMobile}</li>
+                  <br />
+                </div>
+              );
+            })
+          ) : (
+            <i>No Data Here To Show</i>
+          )}
+        </ul>
+        </div>
+        <div>
+          <FormData/>
+        </div>
       </div>
     </>
   );
